@@ -1,0 +1,73 @@
+body {
+  background-color: rgb(117, 117, 117);
+}
+
+header {
+  height: 10px;
+}
+
+.gameCell {
+
+}
+
+.gameBoard {
+  height: 600px;
+  width: 100%;
+  margin-top: 6%;
+}
+
+.gameTable {
+  width: 100%;
+  height: 100%;
+}
+
+.gameCell {
+  height: 33%;
+  width: 33%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.rowScore {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.rowScore p {
+  font-size: 40pt;
+  color: white;
+}
+
+h3 {
+  color: white;
+}
+
+.restart {
+  text-align: center;
+}
+
+.gameRow1 {
+  border-bottom: 3px solid white;
+}
+
+.gameRow2 {
+  border-bottom: 3px solid white;
+}
+
+.mid {
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+}
+
+.o {
+left: 16.666666667%;
+top: 16.666666667%;
+width: 66.666666667%;
+height: 66.666666667%;
+border-radius: 50%;
+border: 20px solid #fff;
+display: block;
+}

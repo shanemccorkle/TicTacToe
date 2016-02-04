@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link rel="stylesheet" href="ticTacToe.css" type="text/css"/>
+    <script type="text/javascript" src="ticTacToe.js"></script>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <header>
+
+    </header>
+    <div class="container-fluid">
+      <div class="jumbotron">
+        <h1>Tic Tac Toe</h1>
+        <button type="button" id="startButton">Start Game!</button>
+      </div>
+
+      <div class="row rowDiv">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-8">
+          <div class="gameBoard">
+            <table class="gameTable">
+              <tr class="gameRow1">
+                <td class="gameCell">
+
+                </td>
+                <td class="gameCell mid">
+
+                </td>
+                <td class="gameCell">
+
+                </td>
+              </tr>
+              <tr class="gameRow2">
+                <td class="gameCell">
+
+                </td>
+                <td class="gameCell mid">
+
+                </td>
+                <td class="gameCell">
+                  <div class="o">
+
+                  </div>
+                </td>
+              </tr>
+              <tr class="gameRow3">
+                <td class="gameCell">
+
+                </td>
+                <td class="gameCell mid">
+
+                </td>
+                <td class="gameCell">
+
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-2">
+
+        </div>
+      </div>
+
+      <div class="row rowScore">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-3">
+          <div class="playerScore">
+            <h3>PLAYER 1 (X)</h3>
+            <p>0</p>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="ties">
+            <h3>TIES</h3>
+            <p>0</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="computerScore">
+            <h3>PLAYER 2 (O)</h3>
+            <p>0</p>
+          </div>
+        </div>
+        <div class="col-sm-2">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="restart">
+            <button class="btn btn-default btn-lg" type="button" id="playAgainButton">Play Again!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
