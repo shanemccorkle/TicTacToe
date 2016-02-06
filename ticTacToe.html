@@ -5,6 +5,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <link rel="stylesheet" href="ticTacToe.css" type="text/css"/>
     <script type="text/javascript" src="ticTacToe.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Signika:600' rel='stylesheet' type='text/css'>
     <meta charset="utf-8">
     <title>Tic Tac Toe</title>
   </head>
@@ -13,51 +14,77 @@
 
     </header>
     <div class="container-fluid">
-      <div class="jumbotron">
+      <!-- <div class="jumbotron"> -->
         <h1>Tic Tac Toe</h1>
-        <button type="button" id="startButton">Start Game!</button>
+        <button type="button" class="btn btn-default btn-primary btn-md" id="startButton">Start Game!</button>
       </div>
+
+      <!-- <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-8">
+          <div class="intro1 bigx1">
+
+          </div>
+          <div class="intro2 bigx2">
+
+          </div>
+          <div class="o">
+
+          </div>
+        </div>
+        <div class="col-sm-2">
+
+        </div>
+      </div>  -->
 
       <div class="row rowDiv">
         <div class="col-sm-2">
-
         </div>
         <div class="col-sm-8">
           <div class="gameBoard">
             <table class="gameTable">
               <tr class="gameRow1">
                 <td class="gameCell">
-
+                  <div class="fillX1"></div>
+                  <div class="fillX2"></div>
                 </td>
                 <td class="gameCell mid">
-
+                  <div class="fillX1"></div>
+                  <div class="fillX2"></div>
                 </td>
                 <td class="gameCell">
-
+                    <div class="fillX1"></div>
+                    <div class="fillX2"></div>
                 </td>
               </tr>
               <tr class="gameRow2">
                 <td class="gameCell">
-
+                  <div class="fillX1"></div>
+                  <div class="fillX2"></div>
                 </td>
                 <td class="gameCell mid">
-
+                  <div class="fillX1"></div>
+                  <div class="fillX2"></div>
                 </td>
                 <td class="gameCell">
-                  <div class="o">
-
-                  </div>
+                  <div class="fillX1"></div>
+                  <div class="fillX2"></div>
                 </td>
               </tr>
               <tr class="gameRow3">
                 <td class="gameCell">
-
+                  <div class="fillX1"></div>
+                  <div class="fillX2"></div>
                 </td>
                 <td class="gameCell mid">
-
+                  <div class="fillX1"></div>
+                  <div class="fillX2"></div>
                 </td>
                 <td class="gameCell">
-
+                  <div class="fillX1"></div>
+                  <div class="fillX2"></div>
                 </td>
               </tr>
             </table>
@@ -71,31 +98,49 @@
       <div class="row rowScore">
         <div class="col-sm-2">
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-8">
           <div class="playerScore">
             <h3>PLAYER 1 (X)</h3>
+            <input type="text" placeholder="Enter name"/>
+            <button type="button">Submit</button>
             <p>0</p>
           </div>
-        </div>
-        <div class="col-sm-2">
+
           <div class="ties">
-            <h3>TIES</h3>
+            <h4>TIES</h4>
             <p>0</p>
           </div>
-        </div>
-        <div class="col-sm-3">
+
           <div class="computerScore">
             <h3>PLAYER 2 (O)</h3>
+            <input type="text" placeholder="Enter name"/>
+            <button type="button">Submit</button>
             <p>0</p>
           </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1">
+          <div id="computer"class="sqComputer"></div>
+          <div class="sqComputerBase"></div>
+          <div class="level">
+            <div class="sqComputerLevelEasy greenComputer sqComputerLevel" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Easy</div>
+            <div class="sqComputerBaseLevel"></div>
+            <div  class="sqComputerLevelMedium orangeComputer sqComputerLevel" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medium</div>
+            <div class="sqComputerBaseLevel"></div>
+            <div class="sqComputerLevelHard redComputer  sqComputerLevel" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hard</div>
+            <div class="sqComputerBaseLevel"></div>
+            <div class="sqPlayer blackComputer sqComputerLevel" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="sqComputerBaseLevel"></div>
+          </div>
+        </div>
+        <div class="col-sm-1">
+
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
           <div class="restart">
             <button class="btn btn-default btn-lg" type="button" id="playAgainButton">Play Again!</button>
+            <h2 class="displayMessage"></h2>
           </div>
         </div>
       </div>
