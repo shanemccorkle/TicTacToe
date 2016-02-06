@@ -1,3 +1,7 @@
+* {
+  font-family: 'Signika', sans-serif;
+}
+
 body {
   background-color: rgb(117, 117, 117);
 }
@@ -6,14 +10,12 @@ header {
   height: 10px;
 }
 
-.gameCell {
-
-}
-
 .gameBoard {
-  height: 600px;
-  width: 100%;
+  /*height: 25em;*/
+  /*width: 100%;*/
   margin-top: 6%;
+  min-width: 150px;
+  min-height: 150px;
 }
 
 .gameTable {
@@ -22,8 +24,10 @@ header {
 }
 
 .gameCell {
-  height: 33%;
-  width: 33%;
+  /*min-width: 150px;
+  min-height: 150px;*/
+  height: 150px;
+  width: 150px;
 }
 
 img {
@@ -32,8 +36,9 @@ img {
 }
 
 .rowScore {
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
+
 }
 
 .rowScore p {
@@ -41,7 +46,27 @@ img {
   color: white;
 }
 
+h1 {
+  margin-left: 5%;
+}
+
+#startButton {
+  margin-left: 5%;
+  border-radius: 3px;
+}
+
 h3 {
+  color: white;
+}
+
+h3:hover {
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+h4 {
+  margin-top: 25px;
   color: white;
 }
 
@@ -57,17 +82,146 @@ h3 {
   border-bottom: 3px solid white;
 }
 
+.playerScore {
+  display: inline-block;
+}
+
+.ties {
+  display: inline-block;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.computerScore {
+  display: inline-block;
+}
+
 .mid {
   border-left: 3px solid white;
   border-right: 3px solid white;
 }
 
 .o {
-left: 16.666666667%;
-top: 16.666666667%;
-width: 66.666666667%;
-height: 66.666666667%;
-border-radius: 50%;
-border: 20px solid #fff;
-display: block;
+  border-radius: 50%;
+  border: 22px solid white;
+  padding: 20%;
+  height: 40%;
+  width: 40%;
+  margin-left: 17%;
+  margin-right: 25%;
+}
+
+
+.x1 {
+  width: 22px;
+  height: 8em;
+  transform: rotate(45deg);
+  background-color: white;
+  position: relative;
+  left: 45%;
+  /*top: 30%;*/
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.x2 {
+  width: 22px;
+  height: 8em;
+  transform: rotate(-45deg);
+  background-color: white;
+  position: relative;
+  left: 35%;
+  /*top: -20%;*/
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.bigx1 {
+  width: 50px;
+  height: 300px;
+  transform: rotate(45deg);
+  background-color: white;
+  position: relative;
+  left: 45%;
+  /*top: 30%;*/
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.bigx2 {
+  width: 50px;
+  height: 300px;
+  transform: rotate(-45deg);
+  background-color: white;
+  position: relative;
+  left: 35%;
+  /*top: -20%;*/
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.displayMessage {
+  margin-top: 0;
+}
+
+.sqComputer {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-top: 20px;
+  border-radius: 3px;
+  border: 2px solid white;
+}
+
+.sqComputerBase {
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  margin-top: 2px;
+}
+
+.grayComputer {
+  background-color: gray;
+}
+
+.blackComputer {
+  background-color: black;
+}
+
+.greenComputer {
+  background-color: green;
+}
+
+.orangeComputer {
+  background-color: orange;
+}
+
+.redComputer {
+  background-color: red;
+}
+
+.sqComputerLevel {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  border-radius: 3px;
+  border: 2px solid white;
+}
+
+.sqComputerBaseLevel {
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  margin-top: 2px;
+}
+
+.level {
+  /*display: none;*/
+  color: white;
+  position: relative;
+  height: 125px;
+  width: 200px;
+  margin-left: 0;
+  padding-left: 0;
 }
