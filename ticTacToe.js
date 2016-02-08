@@ -7,6 +7,7 @@ $(document).ready(function startGame() {
   var x = "x1";
   var x2 = "x2";
   var o = "<div class='o'></div>";
+  var x = "<div class='x1'></div><div class='x2'></div>";
   var xTurn = true;
   var winnerFound = false;
   var player = 0;
@@ -25,7 +26,7 @@ $(document).ready(function startGame() {
     $(".playerScore > input").toggle();
   });
 
-  $(".col-sm-1").hover(function(){
+  $(".playerLevel").hover(function(){
         $(".level").animate({
             height: 'toggle'
         });
@@ -88,11 +89,13 @@ $(document).ready(function startGame() {
   });
 
   // Initializes the board and toggles everything to show once the game has started
-  $(".rowScore").toggle();
   $(".restart").toggle();
-  $("#startButton").click(function(event) {
-    $("#startButton").fadeOut('1000');
-    $(".rowScore").fadeIn('2000');
+  $(".intro").click(function(event) {
+    $("header").fadeOut('slow');
+    $(".bigO").animate({left: '200%'}, 1000);
+    $(".bigX1").animate({left: '-200%'}, 1000);
+    $(".bigX2").animate({left: '-200%'}, 1000);
+    setTimeout(function(){ $(".intro").hide(); }, 1000);
     $(".playerScore > input").toggle();
     $(".playerScore > button").toggle();
     $(".computerScore > input").toggle();
@@ -105,8 +108,9 @@ $(document).ready(function startGame() {
     var boardPos = ($(this).parent().index() * 3) + $(this).index();
 
     if(xTurn && boardArray[boardPos] === 0 && !winnerFound ) {
-      $(this).children('.fillX1').addClass(x);
-      $(this).children('.fillX2').addClass(x2);
+      // $(this).children('.gameCellInside').addClass("x1 x2");
+      // $(this).children('.fillX2').addClass(x2);
+      $(this).html(x);
       boardArray[boardPos] = 1;
       xTurn = false;
       processWinner();
@@ -135,28 +139,26 @@ $(document).ready(function startGame() {
 
   // Is called when it is the computer's turn to go and picks a random number(index) on the baord that is not currently used.
   function computerTurn(boardPos) {
-    var easyTurnIndex = Math.floor(Math.random()*boardArray.length);
+    var easyTurnIndex = findEmptySpot();
     var medTurnIndex;
-    var hardTurnIndex;
-    var i = 1;
     var medPosFound = false;
+    var hardTurnIndex;
+    var hardMoveFound = false;
+    var i = 1;
 
     if (computerMedium === true) {
       do {
         if(boardArray[boardPos+i] === 0) {
           medTurnIndex = boardPos + i;
           medPosFound = true;
-          alert("Position+ at " + medTurnIndex);
         } else if (boardArray[boardPos-i] === 0) {
           medTurnIndex = boardPos - i;
           medPosFound = true;
-          alert("Position- at " + medTurnIndex);
         }
         i++;
       } while (!medPosFound)
     }
 
-    var hardMoveFound = false;
     if (computerHard === true) {
       for (var i = 0; i < 8; i++) {
         var a = boardArray[winning[i][0]];
@@ -167,20 +169,21 @@ $(document).ready(function startGame() {
           if(a === 0) {
           hardTurnIndex = winning[i][0];
           hardMoveFound = true;
-        } else if(b === 0) {
+          } else if (b === 0) {
           hardTurnIndex = winning[i][1];
           hardMoveFound = true;
-        } else if(c === 0) {
+          } else if (c === 0) {
           hardTurnIndex = winning[i][2];
           hardMoveFound = true;
-        }
+          }
         }
       }
+      if (!hardMoveFound) {
+        hardTurnIndex = findEmptySpot();
+        hardMoveFound = true;
+      }
     }
-    if(!hardMoveFound && computerHard === true) {
-      hardTurnIndex = Math.floor(Math.random()*boardArray.length);
-      hardMoveFound = false;
-    }
+
 
     if ((boardArray[easyTurnIndex] === 0) && (computerEasy === true)) {
       $(".gameCell").eq(easyTurnIndex).html(o).fadeIn(2000);
@@ -193,7 +196,6 @@ $(document).ready(function startGame() {
       xTurn = true;
       processWinner();
     } else if(computerHard ===true) {
-
       $(".gameCell").eq(hardTurnIndex).html(o).fadeIn(2000);
       boardArray[hardTurnIndex] = -1;
       xTurn = true;
@@ -203,12 +205,21 @@ $(document).ready(function startGame() {
     }
   };
 
+  function findEmptySpot() {
+    var turnIndex = Math.floor(Math.random()*boardArray.length);
+    if (boardArray[turnIndex] === 0) {
+      return turnIndex;
+    } else {
+      findEmptySpot();
+    }
+  }
+
   // Resets the baord so users can play again
   function boardReset() {
     boardArray.fill(0);
     xTurn = true;
     winnerFound = false;
-    $(".gameCell").html("<div class='fillX1'></div> <div class='fillX2'></div>");
+    $(".gameCell").html("");
     $(".restart").toggle();
   };
 
@@ -226,33 +237,27 @@ $(".computerScore > input").keypress(function(e){
   // Runs after every move and checks to make sure that no one has won.
   function processWinner() {
     var checkXO;
-    var winner;
     var winnerSpot;
     for (var i = 0; i < 8; i++) {
-          if(((((boardArray[winning[i][0]] + boardArray[winning[i][2]]) + boardArray[winning[i][1]]) === 3) || ((boardArray[winning[i][0]] + boardArray[winning[i][2]]) + boardArray[winning[i][1]]) === -3) &&
-          (boardArray[winning[i][0]] != 0)) {
-
-          winner = true;
-          $(".displayMessage").fadeIn(1500);
-          $(".displayMessage").fadeOut(2000);
-          switch (boardArray[winning[i][0]]) {
-            case 1:
-              player++;
-              $(".displayMessage").text("X won!");
-              $(".playerScore > p").text(player)
-              $(".restart").fadeIn('2000');
-              break;
-            default:
-              computer++;
-              $(".displayMessage").text("O won!");
-              $(".computerScore > p").text(computer)
-              $(".restart").fadeIn('2000');
-          }
-
+      var a = boardArray[winning[i][0]];
+      var b = boardArray[winning[i][1]];
+      var c = boardArray[winning[i][2]];
+        if (a+b+c === 3) {
           winnerFound = true;
-          break;
+          player++;
+          $(".displayMessage").text("X won!").fadeIn('1500');
+          $(".playerScore > p").text(player)
+          $(".restart").fadeIn('2000');
+        } else if (a+b+c === -3) {
+          computer++;
+          winnerFound = true;
+          $(".displayMessage").text("O won!").fadeIn('1500');
+          $(".computerScore > p").text(computer)
+          $(".restart").fadeIn('2000');
         }
     }
   }
+
   $("#playAgainButton").click(boardReset);
+
 });
