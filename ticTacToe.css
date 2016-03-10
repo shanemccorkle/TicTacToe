@@ -7,47 +7,39 @@ body {
 }
 
 header {
-  height: 10px;
+  height: 100px;
+  margin-bottom: 50px;
 }
 
-.gameBoard {
-  /*height: 25em;*/
-  /*width: 100%;*/
-  margin-top: 6%;
-  min-width: 150px;
-  min-height: 150px;
+h1 {
+  color: white;
+  font-size: 100pt;
+  text-align: center;
+}
+
+.rowDiv {
+  margin-top: 20px;
 }
 
 .gameTable {
-  width: 100%;
+  width: 480px;
   height: 100%;
+  margin: auto;
 }
 
 .gameCell {
-  /*min-width: 150px;
-  min-height: 150px;*/
-  height: 150px;
-  width: 150px;
-}
-
-img {
-  width: 100%;
-  height: auto;
+  height: 160px;
+  width: 160px;
+  margin: 10px;
 }
 
 .rowScore {
-  margin-top: 30px;
   text-align: center;
-
 }
 
 .rowScore p {
   font-size: 40pt;
   color: white;
-}
-
-h1 {
-  margin-left: 5%;
 }
 
 #startButton {
@@ -104,60 +96,79 @@ h4 {
 .o {
   border-radius: 50%;
   border: 22px solid white;
-  padding: 20%;
-  height: 40%;
-  width: 40%;
-  margin-left: 17%;
-  margin-right: 25%;
+  padding: 40px;
+  height: 120px;
+  width: 120px;
+  margin: auto;
 }
-
 
 .x1 {
   width: 22px;
-  height: 8em;
-  transform: rotate(45deg);
+  height: 150px;
   background-color: white;
+  transform: rotate(45deg);
   position: relative;
-  left: 45%;
-  /*top: 30%;*/
+  left: 43%;
+  top: 3%;
   border-radius: 4px;
   display: inline-block;
 }
 
 .x2 {
   width: 22px;
-  height: 8em;
+  height: 150px;
   transform: rotate(-45deg);
   background-color: white;
   position: relative;
-  left: 35%;
-  /*top: -20%;*/
+  left: 30%;
+  top: 3%;
   border-radius: 4px;
   display: inline-block;
 }
 
-.bigx1 {
-  width: 50px;
-  height: 300px;
+.intro {
+  margin: auto;
+  width: 580px;
+  padding-bottom: 800px;
+}
+
+.bigX1 {
+  width: 70px;
+  height: 400px;
   transform: rotate(45deg);
   background-color: white;
   position: relative;
-  left: 45%;
-  /*top: 30%;*/
-  border-radius: 4px;
+  left: 15%;
+  border-radius: 6px;
   display: inline-block;
 }
 
-.bigx2 {
-  width: 50px;
-  height: 300px;
+.bigX2 {
+  width: 70px;
+  height: 400px;
   transform: rotate(-45deg);
   background-color: white;
   position: relative;
-  left: 35%;
-  /*top: -20%;*/
-  border-radius: 4px;
+  left: 3%;
+  border-radius: 6px;
   display: inline-block;
+}
+
+.bigO {
+  border-radius: 50%;
+  border: 70px solid white;
+  padding: 40px;
+  height: 350px;
+  width: 350px;
+  position: relative;
+  left: 20%;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.intro :hover {
+  background-color: black;
+  cursor: pointer;
 }
 
 .displayMessage {
@@ -217,11 +228,10 @@ h4 {
 }
 
 .level {
-  /*display: none;*/
   color: white;
   position: relative;
   height: 125px;
-  width: 200px;
+  width: 150px;
   margin-left: 0;
   padding-left: 0;
 }
